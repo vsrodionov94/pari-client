@@ -7,6 +7,7 @@ export default class TeamScreen {
   private currentTeam: Teams;
   private teams: TeamElement[];
   private startButton: Phaser.GameObjects.Sprite;
+  private bg: Phaser.GameObjects.Sprite;
 
   constructor (scene: Start) {
     this.scene = scene;
@@ -15,7 +16,7 @@ export default class TeamScreen {
   }
 
   private createElements(): void {
-    this.scene.add.sprite(0, 0, 'team-screen').setOrigin(0);
+    this.bg = this.scene.add.sprite(0, 0, 'team-screen-disabled').setOrigin(0);
 
     this.teams = [];
     this.teams.push(new TeamElement(this.scene, Teams.Zenit, 210, 430 - 25 + 20, () => {
@@ -42,10 +43,11 @@ export default class TeamScreen {
     if (this.currentTeam !== Teams.None) {
       this.startButton.setVisible(true);
     }
+    this.bg.setTexture('team-screen');
   }
 
   private createButton(): void {
-    this.startButton = this.scene.add.sprite(this.scene.cameras.main.centerX, 1170, 'play-button');
+    this.startButton = this.scene.add.sprite(this.scene.cameras.main.centerX, 1155, 'play-button');
     this.startButton.setVisible(false);
     Utils.clickButton(this.scene, this.startButton, () => {
       this.scene.state.team = this.currentTeam;
@@ -98,7 +100,7 @@ class TeamElement {
       align: 'center',
     };
 
-    this.bg = this.scene.add.sprite(this.x, this.y, 'team-unselected');
+    this.bg = this.scene.add.sprite(this.x, this.y, 'team-disabled');
     this.sprite = this.scene.add.sprite(this.x, this.y - 20, texture).setScale(0.5);
     this.text = this.scene.add.text(this.x, this.y + 150, text, config).setOrigin(0.5);
     Utils.click(this.bg, () => {
