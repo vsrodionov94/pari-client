@@ -77,6 +77,7 @@ export default class Game extends Phaser.Scene {
         if (this.state.attempts === 0) {
           this.endGame();
         }
+        this.healthBar.update(this.state.attempts);
       }
     });
   }
