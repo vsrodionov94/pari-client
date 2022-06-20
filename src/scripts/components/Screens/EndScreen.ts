@@ -1,5 +1,5 @@
 import Start from '../../scenes/Start';
-import { Modals, Teams } from '../../types';
+import { Modals } from '../../types';
 import Utils from '../../libs/Utils';
 
 export default class EndScreen {
@@ -13,7 +13,7 @@ export default class EndScreen {
   private createElements(): void {
     this.scene.add.sprite(0, 0, 'end-screen').setOrigin(0);
     const { centerX } = this.scene.cameras.main;
-    const score = this.scene.add.text(centerX, 980, '5360', { fontFamily: 'DrukWide', fontSize: '50px' }).setOrigin(0.5);
+    const score = this.scene.add.text(centerX, 980, this.scene.state.currentPoints.toString(), { fontFamily: 'DrukWide', fontSize: '50px' }).setOrigin(0.5);
     this.createButton();
   }
 

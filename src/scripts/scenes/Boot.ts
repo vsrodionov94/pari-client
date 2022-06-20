@@ -46,6 +46,7 @@ export default class BootScene extends Phaser.Scene {
       .then(data => {
         this.state.attempts = data.attempts;
         this.state.team = data.team;
+        this.state.currentPoints = data.points;
         this.userReady = true;
       });
   }

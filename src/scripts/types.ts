@@ -94,4 +94,5 @@ export {
   Fonts,
   SetTeamRequest,
   SetTeamResponse,
+  Targets,
 };
