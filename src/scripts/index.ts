@@ -1,6 +1,9 @@
 import '../css/style.css';
 import * as Phaser from 'phaser';
 import Boot from './scenes/Boot';
+import Preload from './scenes/Preload';
+import Game from './scenes/Game';
+import Start from './scenes/Start';
 
 const gcd = (num1: number, num2: number): number => {
   while (num1 && num2) num1 > num2 ? num1 %= num2 : num2 %= num1;
@@ -18,10 +21,7 @@ window.onload = (): void => {
     let clientHeight: number = Math.round(document.body.clientHeight);
     let clientWidth: number = Math.round(document.body.clientWidth);
     let canvasWidth: number = 720;
-    let canvasHeight: number = Math.round((720 * clientHeight) / clientWidth);
-    
-    if (canvasHeight > 1700) canvasHeight = 1700;
-    else if (canvasHeight < 1200) canvasHeight = 1200;
+    let canvasHeight: number = 1280;
  
     let x: number = canvasWidth / gcd(canvasHeight, canvasWidth);
     let y: number = canvasHeight / gcd(canvasHeight, canvasWidth);
@@ -53,26 +53,13 @@ window.onload = (): void => {
       },
       scene: [
         Boot,
+        Preload,
+        Start,
+        Game,
       ],
       loader: { maxParallelDownloads: 128 },
     }
     
-    const game: Phaser.Game = new Phaser.Game(config);
-    window.addEventListener('resize', (): void => {
-      // let clientHeight: number = Math.round(document.body.clientHeight);
-      // let clientWidth: number = Math.round(document.body.clientWidth);
-
-      // if (clientHeight / y > clientWidth / x) {
-      //   width = clientWidth;
-      //   height = clientWidth / x * y;
-      // } else {
-      //   width = clientHeight / y * x;
-      //   height = clientHeight;
-      // }
-    
-      // root.style.height = height + 'px';
-      // root.style.width = width + 'px';
-      game.scale.resize(canvasWidth, canvasHeight);
-    }, false);
+    new Phaser.Game(config);
   }, 100);
 }

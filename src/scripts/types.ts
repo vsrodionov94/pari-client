@@ -50,6 +50,22 @@ enum Teams {
   Novgorod = 4,
 };  
 
+type State = {
+  vkId: number;
+  name: string;
+  attempts: integer;
+  currentPoints: integer;
+  team: Teams;
+  modal: Modals;
+};
+
+enum Modals {
+  None,
+  Tutorial,
+  Raitings,
+  End,
+}
+
 export {
   CheckUserRequest,
   CheckUserResponse,
@@ -57,4 +73,8 @@ export {
   GetRaitingsResponse,
   TryHittingRequest,
   TryHittingResponse,
+  RaitingsUser,
+  State,
+  Teams,
+  Modals,
 };
