@@ -64,7 +64,12 @@ enum Modals {
   Tutorial,
   Raitings,
   End,
-}
+};
+
+enum Fonts {
+  DrukWide = 'DrukWide',
+  FuturaPT = 'FuturaPT',
+};
 
 export {
   CheckUserRequest,
@@ -77,4 +82,5 @@ export {
   State,
   Teams,
   Modals,
+  Fonts,
 };

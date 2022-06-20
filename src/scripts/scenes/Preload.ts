@@ -8,7 +8,6 @@ const tutorialScreen: string = require('../../assets/images/tutorial-screen.png'
 const raitingsScreen: string = require('../../assets/images/raitings-screen.png');
 const teamScreen: string = require('../../assets/images/team-screen.png');
 const teamScreenDisabled: string = require('../../assets/images/team-screen-disabled.png');
-const health: string = require('../../assets/images/health.png');
 const team1: string = require('../../assets/images/team-1.png');
 const team2: string = require('../../assets/images/team-2.png');
 const team3: string = require('../../assets/images/team-3.png');
@@ -23,6 +22,13 @@ const closeButton: string = require('../../assets/images/close-button.png');
 const menuButton: string = require('../../assets/images/menu-button.png');
 const raitingsItemBg: string = require('../../assets/images/item-bg.png');
 const raitingsPlayerBg: string = require('../../assets/images/player-bg.png');
+const ball: string = require('../../assets/images/ball.png');
+const point: string = require('../../assets/images/point.png');
+const stay: string = require('../../assets/images/goalkeeper/stay.png');
+const left: string = require('../../assets/images/goalkeeper/left.png');
+const right: string = require('../../assets/images/goalkeeper/right.png');
+const bottom: string = require('../../assets/images/goalkeeper/bottom.png');
+const top: string = require('../../assets/images/goalkeeper/top.png');
 
 export default class Preload extends Phaser.Scene {
   public state: State;
@@ -49,7 +55,6 @@ export default class Preload extends Phaser.Scene {
     this.load.image('raitings-screen', raitingsScreen);
     this.load.image('team-screen', teamScreen);
     this.load.image('team-screen-disabled', teamScreenDisabled);
-    this.load.image('health', health);
     this.load.image('team-1', team1);
     this.load.image('team-2', team2);
     this.load.image('team-3', team3);
@@ -64,6 +69,13 @@ export default class Preload extends Phaser.Scene {
     this.load.image('menu-button', menuButton);
     this.load.image('item-bg', raitingsItemBg);
     this.load.image('player-bg', raitingsPlayerBg);
+    this.load.image('ball', ball);
+    this.load.image('point', point);
+    this.load.image('goalkeeper-stay', stay);
+    this.load.image('goalkeeper-left', left);
+    this.load.image('goalkeeper-right', right);
+    this.load.image('goalkeeper-bottom', bottom);
+    this.load.image('goalkeeper-top', top);
   }
 
   public create(): void {
