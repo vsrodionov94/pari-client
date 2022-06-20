@@ -3,6 +3,8 @@ import {
   CheckUserResponse,
   GetRaitingsRequest,
   GetRaitingsResponse,
+  SetTeamRequest,
+  SetTeamResponse,
   TryHittingRequest,
   TryHittingResponse,
 } from "../types";
@@ -42,6 +44,14 @@ class Api {
 
   public tryHitting(data: TryHittingRequest): Promise<TryHittingResponse> {
     return fetch(`${this.url}/tryHitting`, {
+      headers: this.headers,
+      method: "POST",
+      body: JSON.stringify(data),
+    }).then(this.handleResponseData);
+  }
+
+  public setTeam(data: SetTeamRequest): Promise<SetTeamResponse> {
+    return fetch(`${this.url}/setTeam`, {
       headers: this.headers,
       method: "POST",
       body: JSON.stringify(data),

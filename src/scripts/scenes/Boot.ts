@@ -42,11 +42,10 @@ export default class BootScene extends Phaser.Scene {
   }
 
   private checkUser(): void {
-    this.userReady = true;
-    return;
     api.checkUser({ vkId: this.state.vkId, name: this.state.name })
       .then(data => {
         this.state.attempts = data.attempts;
+        this.state.team = data.team;
         this.userReady = true;
       });
   }

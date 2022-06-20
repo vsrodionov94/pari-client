@@ -1,6 +1,7 @@
 import Start from '../../scenes/Start';
 import { Teams } from '../../types';
 import Utils from '../../libs/Utils';
+import api from './../../libs/Api';
 
 export default class TeamScreen {
   private scene: Start;
@@ -50,8 +51,12 @@ export default class TeamScreen {
     this.startButton = this.scene.add.sprite(this.scene.cameras.main.centerX, 1155, 'play-button');
     this.startButton.setVisible(false);
     Utils.clickButton(this.scene, this.startButton, () => {
-      this.scene.state.team = this.currentTeam;
-      this.scene.scene.restart();
+      api.setTeam({ vkId: this.scene.state.vkId, team: this.currentTeam }).then(data => {
+        if (!data.error) {
+          this.scene.state.team = this.currentTeam;
+          this.scene.scene.restart();
+        }
+      });
     });
   }
 };

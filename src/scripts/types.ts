@@ -29,6 +29,15 @@ type TryHittingRequest = {
   target: Targets,
 };
 
+type SetTeamRequest = {
+  vkId: integer,
+  team: Teams,
+};
+
+type SetTeamResponse = {
+  error: boolean;
+};
+
 type TryHittingResponse = {
   error: boolean,
   success: boolean,
@@ -83,4 +92,6 @@ export {
   Teams,
   Modals,
   Fonts,
+  SetTeamRequest,
+  SetTeamResponse,
 };
