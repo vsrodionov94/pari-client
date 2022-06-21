@@ -32,7 +32,7 @@ export default class BootScene extends Phaser.Scene {
 
   private initUser(): void {
     if (process.env.DEV) {
-      this.state.vkId = 4
+      this.state.vkId = 5
       this.state.name = 'Неизвестный игрок';
       this.checkUser();
     } else {
