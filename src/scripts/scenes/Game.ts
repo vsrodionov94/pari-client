@@ -110,9 +110,6 @@ export default class Game extends Phaser.Scene {
         } else {
           this.showHint('ПРОМАХ');
         }
-        if (this.state.attempts === 0) {
-          this.endGame();
-        }
         this.healthBar.update(this.state.attempts);
       }
     });
@@ -129,6 +126,9 @@ export default class Game extends Phaser.Scene {
       onComplete: () => {
         this.hint.setAlpha(0);
         this.animationIsPlaying = false;
+        if (this.state.attempts === 0) {
+          this.endGame();
+        }
       }
     });
   }
