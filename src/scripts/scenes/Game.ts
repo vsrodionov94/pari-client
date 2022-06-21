@@ -32,7 +32,7 @@ export default class Game extends Phaser.Scene {
     const { centerX, centerY } = this.cameras.main;
     this.ball = this.add.sprite(centerX, centerY + 320, 'ball').setDepth(2);
     this.ballPosition = new Phaser.Math.Vector2(this.ball.x, this.ball.y);
-    this.pointsText = this.add.text(150, 65, this.state.currentPoints.toString(), { fontFamily: Fonts.DrukWide, fontSize: '45px' }).setOrigin(0.5);
+    this.pointsText = this.add.text(150, 65, this.gamePoints.toString(), { fontFamily: Fonts.DrukWide, fontSize: '45px' }).setOrigin(0.5);
     this.hint = this.add.text(centerX, 300, 'ПРОМАХ', { fontFamily: Fonts.DrukWide, fontSize: '35px' }).setOrigin(0.5).setAlpha(0);
     this.healthBar = new HealthBar(this);
     this.healthBar.update(this.state.attempts);
@@ -107,6 +107,7 @@ export default class Game extends Phaser.Scene {
           this.gamePoints += points;
           this.state.currentPoints = data.points;
           this.showHint(`+${points}`);
+          this.pointsText.setText(`${this.gamePoints}`);
         } else {
           this.showHint('ПРОМАХ');
         }
