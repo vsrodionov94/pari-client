@@ -94,7 +94,7 @@ class TeamElement {
         text = 'СОЧИ';
         break;
       case Teams.Novgorod:
-        text = 'НИЖНИЙ НОВГОРОД';
+        text = 'ПАРИ НН';
         break;
     };
 
