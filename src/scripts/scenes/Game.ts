@@ -94,7 +94,6 @@ export default class Game extends Phaser.Scene {
     if (this.animationIsPlaying) return;
     this.animationIsPlaying = true;
     api.tryHitting({ vkId: this.state.vkId, target: target }).then(data => {
-      console.log(data);
       if (data.error) {
         this.scene.stop();
         this.scene.start('Start', this.state);
