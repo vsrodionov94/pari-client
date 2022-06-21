@@ -28,17 +28,20 @@ export default class BootScene extends Phaser.Scene {
     });
 
     this.initUser();
-    this.checkUser();
   }
 
   private initUser(): void {
-    this.state.vkId = 12345
-    this.state.name = 'Неизвестный игрок';
-
-    bridge.send('VKWebAppGetUserInfo').then(data => {
-      this.state.vkId = data.id;
-      this.state.name = `${data.first_name} ${data.last_name}`;
-    });
+    if (process.env.DEV) {
+      this.state.vkId = 4
+      this.state.name = 'Неизвестный игрок';
+      this.checkUser();
+    } else {
+      bridge.send('VKWebAppGetUserInfo').then(data => {
+        this.state.vkId = data.id;
+        this.state.name = `${data.first_name} ${data.last_name}`;
+        this.checkUser();
+      });
+    }
   }
 
   private checkUser(): void {
