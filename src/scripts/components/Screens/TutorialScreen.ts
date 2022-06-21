@@ -16,7 +16,7 @@ export default class TutorialScreen {
   }
 
   private createButton(): void {
-    const startButton = this.scene.add.sprite(this.scene.cameras.main.centerX, 1160, 'play-button');
+    const startButton = this.scene.add.sprite(this.scene.cameras.main.centerX, 1160, `play-button-team-${this.scene.state.team}`);
     Utils.clickButton(this.scene, startButton, () => {
       this.scene.scene.stop();
       this.scene.scene.start('Game', this.scene.state);

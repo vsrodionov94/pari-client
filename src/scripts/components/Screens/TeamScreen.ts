@@ -18,6 +18,7 @@ export default class TeamScreen {
 
   private createElements(): void {
     this.bg = this.scene.add.sprite(0, 0, 'team-screen-disabled').setOrigin(0);
+    this.scene.add.sprite(0, 0, 'team-screen').setOrigin(0);
 
     this.teams = [];
     this.teams.push(new TeamElement(this.scene, Teams.Zenit, 210, 430 - 25 + 20, () => {
@@ -42,13 +43,14 @@ export default class TeamScreen {
       el.update(this.currentTeam);
     });
     if (this.currentTeam !== Teams.None) {
+      this.startButton.setTexture(`play-button-team-${this.currentTeam}`);
       this.startButton.setVisible(true);
     }
-    this.bg.setTexture('team-screen');
+    this.bg.setTexture(`bg-team-${this.currentTeam}`);
   }
 
   private createButton(): void {
-    this.startButton = this.scene.add.sprite(this.scene.cameras.main.centerX, 1155, 'play-button');
+    this.startButton = this.scene.add.sprite(this.scene.cameras.main.centerX, 1155, `play-button-team-1`);
     this.startButton.setVisible(false);
     Utils.clickButton(this.scene, this.startButton, () => {
       api.setTeam({ vkId: this.scene.state.vkId, team: this.currentTeam }).then(data => {
@@ -114,7 +116,7 @@ class TeamElement {
   }
 
   public update(selectedTeam: Teams) {
-    const bgSprite = selectedTeam === this.team ? 'team-selected' : 'team-unselected';
+    const bgSprite = selectedTeam === this.team ? `team-${selectedTeam}-selected` : 'team-unselected';
     this.bg.setTexture(bgSprite);
   }
 };
