@@ -14,7 +14,7 @@ export default class MainScreen {
     const { centerX, centerY } = this.scene.cameras.main;
     const bg = this.scene.add.sprite(centerX, centerY, `bg-team-${this.scene.state.team}`);
     this.scene.add.sprite(0, 0, 'main-screen').setOrigin(0);
-    const teamSprite = this.scene.add.sprite(centerX, centerY - 50, `team-${this.scene.state.team}`);
+    const teamSprite = this.scene.add.sprite(centerX, centerY - 50, `team-${this.scene.state.team}-big`);
     this.createButton();
   }
 
