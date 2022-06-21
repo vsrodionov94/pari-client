@@ -12,7 +12,8 @@ export default class RaitingsScreen {
   }
 
   private createElements(): void {
-    this.scene.add.sprite(0, 0, 'raitings-screen').setOrigin(0);
+    this.scene.add.sprite(0, 0, `bg-team-${this.scene.state.team}`).setOrigin(0);
+    this.scene.add.sprite(0, 0, `modal-bg-team-${this.scene.state.team}`).setOrigin(0);
     const { centerX } = this.scene.cameras.main;
     const header = this.scene.add.text(centerX, 150, 'ЛИДЕРЫ', { fontFamily: 'DrukWide', fontSize: '50px' }).setOrigin(0.5);
     this.createButton();
@@ -34,7 +35,7 @@ export default class RaitingsScreen {
     }
   }
   private createButton(): void {
-    const startButton = this.scene.add.sprite(this.scene.cameras.main.centerX, 1160, `play-button-team-${this.scene.state.team}`);
+    const startButton = this.scene.add.sprite(this.scene.cameras.main.centerX, 1160, `play-button-team-${this.scene.state.team}`).setVisible(this.scene.state.attempts > 0);
     Utils.clickButton(this.scene, startButton, () => {
       this.scene.state.modal = Modals.None;
       this.scene.scene.stop();
@@ -65,7 +66,7 @@ class RaitingsElement {
 
   private createElements(): void {
     const { centerX } = this.scene.cameras.main;
-    const bgTexture = this.isCurrentUser ? 'player-bg' : 'item-bg';
+    const bgTexture = this.isCurrentUser ? `player-bg-team-${this.scene.state.team}` : `item-bg-team-${this.scene.state.team}`;
     const bg = this.scene.add.sprite(centerX, this.y, bgTexture);
     const textConfig: Phaser.Types.GameObjects.Text.TextStyle = {
       fontSize: '24px',

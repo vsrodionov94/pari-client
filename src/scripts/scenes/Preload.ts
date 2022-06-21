@@ -26,21 +26,31 @@ const playButtonTeam1: string = require('../../assets/images/play-button-team-1.
 const playButtonTeam2: string = require('../../assets/images/play-button-team-2.png');
 const playButtonTeam3: string = require('../../assets/images/play-button-team-3.png');
 const playButtonTeam4: string = require('../../assets/images/play-button-team-4.png');
-const tutorialButtonTeam1: string = require('../../assets/images/raitings-button-team-1.png');
-const tutorialButtonTeam2: string = require('../../assets/images/raitings-button-team-2.png');
-const tutorialButtonTeam3: string = require('../../assets/images/raitings-button-team-3.png');
-const tutorialButtonTeam4: string = require('../../assets/images/raitings-button-team-4.png');
-const raitingsButtonTeam1: string = require('../../assets/images/tutorial-button-team-1.png');
-const raitingsButtonTeam2: string = require('../../assets/images/tutorial-button-team-2.png');
-const raitingsButtonTeam3: string = require('../../assets/images/tutorial-button-team-3.png');
-const raitingsButtonTeam4: string = require('../../assets/images/tutorial-button-team-4.png');
+const disableButtonTeam1: string = require('../../assets/images/disable-button-team-1.png');
+const disableButtonTeam2: string = require('../../assets/images/disable-button-team-2.png');
+const disableButtonTeam3: string = require('../../assets/images/disable-button-team-3.png');
+const disableButtonTeam4: string = require('../../assets/images/disable-button-team-4.png');
+const tutorialButtonTeam1: string = require('../../assets/images/tutorial-button-team-1.png');
+const tutorialButtonTeam2: string = require('../../assets/images/tutorial-button-team-2.png');
+const tutorialButtonTeam3: string = require('../../assets/images/tutorial-button-team-3.png');
+const tutorialButtonTeam4: string = require('../../assets/images/tutorial-button-team-4.png');
+const raitingsButtonTeam1: string = require('../../assets/images/raitings-button-team-1.png');
+const raitingsButtonTeam2: string = require('../../assets/images/raitings-button-team-2.png');
+const raitingsButtonTeam3: string = require('../../assets/images/raitings-button-team-3.png');
+const raitingsButtonTeam4: string = require('../../assets/images/raitings-button-team-4.png');
 const closeButton: string = require('../../assets/images/close-button.png');
 const menuButtonTeam1: string = require('../../assets/images/menu-button-team-1.png');
 const menuButtonTeam2: string = require('../../assets/images/menu-button-team-2.png');
 const menuButtonTeam3: string = require('../../assets/images/menu-button-team-3.png');
 const menuButtonTeam4: string = require('../../assets/images/menu-button-team-4.png');
-const raitingsItemBg: string = require('../../assets/images/item-bg.png');
-const raitingsPlayerBg: string = require('../../assets/images/player-bg.png');
+const raitingsItemBgTeam1: string = require('../../assets/images/item-bg-team-1.png');
+const raitingsPlayerBgTeam1: string = require('../../assets/images/player-bg-team-1.png');
+const raitingsItemBgTeam2: string = require('../../assets/images/item-bg-team-2.png');
+const raitingsPlayerBgTeam2: string = require('../../assets/images/player-bg-team-2.png');
+const raitingsItemBgTeam3: string = require('../../assets/images/item-bg-team-3.png');
+const raitingsPlayerBgTeam3: string = require('../../assets/images/player-bg-team-3.png');
+const raitingsItemBgTeam4: string = require('../../assets/images/item-bg-team-4.png');
+const raitingsPlayerBgTeam4: string = require('../../assets/images/player-bg-team-4.png');
 const ball: string = require('../../assets/images/ball.png');
 const point: string = require('../../assets/images/point.png');
 const stay: string = require('../../assets/images/goalkeeper/stay.png');
@@ -52,6 +62,10 @@ const bgTeam1: string = require('../../assets/images/bg-team-1.png');
 const bgTeam2: string = require('../../assets/images/bg-team-2.png');
 const bgTeam3: string = require('../../assets/images/bg-team-3.png');
 const bgTeam4: string = require('../../assets/images/bg-team-4.png');
+const modalBgTeam1: string = require('../../assets/images/modal-bg-team-1.png');
+const modalBgTeam2: string = require('../../assets/images/modal-bg-team-2.png');
+const modalBgTeam3: string = require('../../assets/images/modal-bg-team-3.png');
+const modalBgTeam4: string = require('../../assets/images/modal-bg-team-4.png');
 
 export default class Preload extends Phaser.Scene {
   public state: State;
@@ -96,6 +110,10 @@ export default class Preload extends Phaser.Scene {
     this.load.image('play-button-team-2', playButtonTeam2);
     this.load.image('play-button-team-3', playButtonTeam3);
     this.load.image('play-button-team-4', playButtonTeam4);
+    this.load.image('disable-button-team-1', disableButtonTeam1);
+    this.load.image('disable-button-team-2', disableButtonTeam2);
+    this.load.image('disable-button-team-3', disableButtonTeam3);
+    this.load.image('disable-button-team-4', disableButtonTeam4);
     this.load.image('tutorial-button-team-1', tutorialButtonTeam1);
     this.load.image('tutorial-button-team-2', tutorialButtonTeam2);
     this.load.image('tutorial-button-team-3', tutorialButtonTeam3);
@@ -109,8 +127,14 @@ export default class Preload extends Phaser.Scene {
     this.load.image('menu-button-team-2', menuButtonTeam2);
     this.load.image('menu-button-team-3', menuButtonTeam3);
     this.load.image('menu-button-team-4', menuButtonTeam4);
-    this.load.image('item-bg', raitingsItemBg);
-    this.load.image('player-bg', raitingsPlayerBg);
+    this.load.image('item-bg-team-1', raitingsItemBgTeam1);
+    this.load.image('player-bg-team-1', raitingsPlayerBgTeam1);
+    this.load.image('item-bg-team-2', raitingsItemBgTeam2);
+    this.load.image('player-bg-team-2', raitingsPlayerBgTeam2);
+    this.load.image('item-bg-team-3', raitingsItemBgTeam3);
+    this.load.image('player-bg-team-3', raitingsPlayerBgTeam3);
+    this.load.image('item-bg-team-4', raitingsItemBgTeam4);
+    this.load.image('player-bg-team-4', raitingsPlayerBgTeam4);
     this.load.image('ball', ball);
     this.load.image('point', point);
     this.load.image('goalkeeper-stay', stay);
@@ -123,6 +147,10 @@ export default class Preload extends Phaser.Scene {
     this.load.image('bg-team-2', bgTeam2);
     this.load.image('bg-team-3', bgTeam3);
     this.load.image('bg-team-4', bgTeam4);
+    this.load.image('modal-bg-team-1', modalBgTeam1);
+    this.load.image('modal-bg-team-2', modalBgTeam2);
+    this.load.image('modal-bg-team-3', modalBgTeam3);
+    this.load.image('modal-bg-team-4', modalBgTeam4);
   }
 
   public create(): void {

@@ -19,11 +19,17 @@ export default class MainScreen {
   }
 
   private createButton(): void {
-    const startButton = this.scene.add.sprite(this.scene.cameras.main.centerX, 1020, `play-button-team-${this.scene.state.team}`);
+    const startTexture = this.scene.state.attempts > 0 ? `play-button-team-${this.scene.state.team}` : `disable-button-team-${this.scene.state.team}`;
+    const startButton = this.scene.add.sprite(this.scene.cameras.main.centerX, 1020, startTexture);
     Utils.clickButton(this.scene, startButton, () => {
-      this.scene.state.modal = Modals.None;
-      this.scene.scene.stop();
-      this.scene.scene.start('Game', this.scene.state);
+      if (this.scene.state.attempts > 0) {
+        this.scene.state.modal = Modals.None;
+        this.scene.scene.stop();
+        this.scene.scene.start('Game', this.scene.state);
+      } else {
+        this.scene.state.modal = Modals.Tutorial;
+        this.scene.scene.restart(this.scene.state);
+      }
     });
 
     const raitingsButton = this.scene.add.sprite(this.scene.cameras.main.centerX + 150, 1150, `raitings-button-team-${this.scene.state.team}`);
