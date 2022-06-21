@@ -25,28 +25,28 @@ export default class Goalkeeper {
     this.positions = [
       {
         type: Corners.left_top,
-        x: centerX - 200,
-        y: centerY,
+        x: centerX - 230,
+        y: centerY - 50,
         sprite: 'goalkeeper-left',
         flip: false,
       },
       {
         type: Corners.right_top,
-        x: centerX + 200,
-        y: centerY,
+        x: centerX + 230,
+        y: centerY - 50,
         sprite: 'goalkeeper-left',
         flip: true,
       },
       {
         type: Corners.left_middle,
-        x: centerX - 150,
+        x: centerX - 130,
         y: centerY + 100,
         sprite: 'goalkeeper-right',
         flip: true,
       },
       {
         type: Corners.right_middle,
-        x: centerX + 150,
+        x: centerX + 130,
         y: centerY + 100,
         sprite: 'goalkeeper-right',
         flip: false,
@@ -54,14 +54,14 @@ export default class Goalkeeper {
       {
         type: Corners.left_bottom,
         x: centerX - 200,
-        y: centerY + 100,
+        y: centerY + 150,
         sprite: 'goalkeeper-bottom',
         flip: true,
       },
       {
         type: Corners.right_bottom,
         x: centerX + 200,
-        y: centerY + 100,
+        y: centerY + 150,
         sprite: 'goalkeeper-bottom',
         flip: false,
       },
@@ -85,6 +85,7 @@ export default class Goalkeeper {
       onComplete: () => {
         this.sprite.setTexture('goalkeeper-stay');
         this.sprite.setFlipX(false);
+        this.sprite.setPosition(this.startX, this.startY);
       },
       ease: 'Power2',
       duration: 350,

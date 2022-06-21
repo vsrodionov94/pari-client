@@ -73,7 +73,8 @@ class RaitingsElement {
     };
     const bgGeom = bg.getBounds();
     this.scene.add.text(bgGeom.left + 24, this.y, `${this.data.place}.`, textConfig).setOrigin(0, 0.5);
-    this.scene.add.text(bgGeom.left + 120, this.y, this.data.name, textConfig).setFontFamily('FuturaPT').setOrigin(0, 0.5);
+    const nameStr = this.data.name.length > 22 ? this.data.name.substring(0, 19) + '...' : this.data.name;
+    this.scene.add.text(bgGeom.left + 120, this.y, nameStr, textConfig).setFontFamily('FuturaPT').setOrigin(0, 0.5);
     this.scene.add.text(bgGeom.right - 23, this.y, this.data.points.toString(), textConfig).setOrigin(1, 0.5);
   }
 }
