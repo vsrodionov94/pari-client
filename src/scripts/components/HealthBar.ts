@@ -9,10 +9,10 @@ export class HealthBar {
     this.scene = scene;
 
     this.elements = [];
-    let startX = this.scene.cameras.main.displayWidth - 56;
+    let startX = this.scene.cameras.main.displayWidth - 54;
     const offset = 45;
     for (let i = 0; i < 5; i += 1) {
-      const sprite = this.scene.add.sprite(startX, 68, 'point').setOrigin(1, 0.5);
+      const sprite = this.scene.add.sprite(startX, 108, 'point').setOrigin(1, 0.5);
       startX -= offset;
       this.elements.push(sprite);
     }

@@ -32,8 +32,8 @@ export default class Game extends Phaser.Scene {
     const { centerX, centerY } = this.cameras.main;
     this.ball = this.add.sprite(centerX, centerY + 320, 'ball').setDepth(2);
     this.ballPosition = new Phaser.Math.Vector2(this.ball.x, this.ball.y);
-    this.pointsText = this.add.text(150, 65, this.gamePoints.toString(), { fontFamily: Fonts.DrukWide, fontSize: '45px' }).setOrigin(0.5);
-    this.hint = this.add.text(centerX, 300, 'ПРОМАХ', { fontFamily: Fonts.DrukWide, fontSize: '35px' }).setOrigin(0.5).setAlpha(0);
+    this.pointsText = this.add.text(150, 108, this.gamePoints.toString(), { fontFamily: Fonts.DrukWide, fontSize: '45px' }).setOrigin(0.5);
+    this.hint = this.add.text(centerX, 300, 'НАЖМИ НА МИШЕНЬ', { fontFamily: Fonts.DrukWide, fontSize: '35px' }).setOrigin(0.5);
     this.healthBar = new HealthBar(this);
     this.healthBar.update(this.state.attempts);
 
@@ -93,6 +93,7 @@ export default class Game extends Phaser.Scene {
   private onZoneClick(zone: Phaser.GameObjects.Zone, target: Targets, corner: Corners): void {
     if (this.animationIsPlaying) return;
     this.animationIsPlaying = true;
+    this.hint.setAlpha(0);
     api.tryHitting({ vkId: this.state.vkId, target: target }).then(data => {
       if (data.error) {
         this.scene.stop();
